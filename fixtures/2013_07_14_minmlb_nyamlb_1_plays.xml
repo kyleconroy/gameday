@@ -1,0 +1,62 @@
+<!--Copyright 2013 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt--><game id="2013_07_14_minmlb_nyamlb_1" status_ind="F"  status="Final" inning="9" top_inning="F" b="0" s="0" o="3" inning_state="" event="at_bat_start">
+	<score ar="10" ah="14" ae="1" hr="4" hh="10" he="2" />
+	<players>
+		<batter pid="400098" team_abbrev="NYY" team_id="147" parent_team_abbrev="NYY" parent_team_id="147" current_position="DH" stand="L" b_height="6-3" ab="5" h="1" avg=".218" boxname="Hafner">
+			<ab inning="9" event="Pop Out"/>
+			<ab inning="7" event="Strikeout"/>
+			<ab inning="5" event="Pop Out"/>
+			<ab inning="3" event="Forceout"/>
+			<ab inning="2" event="Single"/>
+		</batter>
+		<pitcher pid="450282" p_throws="L" pitches="19" strikes="15" balls="4" era="1.82" boxname="Perkins"/>
+		<deck pid="150484" boxname="Wells, V"/>
+		<hole pid="407489" boxname="Overbay"/>
+	</players>
+	<splits batter="vs_LHP" pitcher="vs_LHB" runner="RISP"/>
+	<atbat num="86" des="Travis Hafner pops out to second baseman Brian Dozier.  " des_es="Travis Hafner batea elevadito de out a segunda base Brian Dozier.  " event="Left On Base" player="400098">
+		<p type="S" id="734" x="81.55" y="154.56" des="Swinging Strike" des_es="Strike tirándole" sv_id="130714_164432" start_speed="92.5" end_speed="85.2" sz_top="3.38" sz_bot="1.62" pfx_x="10.84" pfx_z="4.81" px="0.621" pz="1.911" x0="1.784" y0="50.0" z0="5.493" vx0="-6.868" vy0="-135.422" vz0="-5.235" ax="20.098" ay="30.002" az="-23.178" break_y="23.8" break_angle="-37.5" break_length="6.7" pitch_type="FT" type_confidence=".945" zone="9" nasty="60" spin_dir="114.114" spin_rate="2358.957"  cc=""/>		<p type="S" id="735" x="104.72" y="118.29" des="Foul" des_es="Foul" sv_id="130714_164452" start_speed="93.3" end_speed="85.9" sz_top="3.38" sz_bot="1.62" pfx_x="9.81" pfx_z="6.82" px="0.019" pz="3.563" x0="1.871" y0="50.0" z0="5.559" vx0="-8.437" vy0="-136.508" vz0="-1.832" ax="18.573" ay="29.145" az="-19.188" break_y="23.8" break_angle="-40.6" break_length="5.5" pitch_type="FT" type_confidence=".891" zone="12" nasty="47" spin_dir="124.961" spin_rate="2408.538"  cc=""/>		<p type="X" id="736" x="91.85" y="123.47" des="In play, out(s)" des_es="En juego, out(s)" sv_id="130714_164524" start_speed="94.7" end_speed="87.1" sz_top="3.38" sz_bot="1.62" pfx_x="6.77" pfx_z="10.19" px="0.225" pz="3.491" x0="1.577" y0="50.0" z0="5.561" vx0="-6.113" vy0="-138.752" vz0="-3.445" ax="13.207" ay="30.675" az="-12.211" break_y="23.8" break_angle="-42.5" break_length="3.7" pitch_type="FF" type_confidence=".854" zone="12" nasty="48" spin_dir="146.514" spin_rate="2502.764"  cc=""/>	</atbat>
+	<field>
+		<offense type="home" id="nya">
+			<man bnum="1" pid="429664" boxname="Cano" note="Single" sb="6" cs="1"/>
+			<man bnum="2" pid="400085" boxname="Suzuki, I" note="Single" sb="13" cs="3"/>
+		</offense>
+		<defense type="away" id="min">
+			<man pid="450282" s_po="1" s_ass="1" s_err="0" s_fldg="1.000" p_sb="0" p_cs="0" pos="p"/>
+			<man pid="408045" s_po="414" s_ass="26" s_err="2" s_fldg=".995" c_sb="15" c_cs="13" pos="c"/>
+			<man pid="408047" s_po="715" s_ass="57" s_err="2" s_fldg=".997" pos="1b"/>
+			<man pid="572821" s_po="164" s_ass="261" s_err="3" s_fldg=".993" pos="2b"/>
+			<man pid="465753" s_po="125" s_ass="267" s_err="8" s_fldg=".980" pos="ss"/>
+			<man pid="425206" s_po="41" s_ass="82" s_err="2" s_fldg=".984" pos="3b"/>
+			<man pid="460004" s_po="71" s_ass="3" s_err="3" s_fldg=".961" pos="lf"/>
+			<man pid="543305" s_po="180" s_ass="9" s_err="0" s_fldg="1.000" pos="cf"/>
+			<man pid="425491" s_po="195" s_ass="20" s_err="2" s_fldg=".991" pos="rf"/>
+		</defense>
+		<ball type="O" x="149.60" y="115.46" batter="400098" pitcher="450282"/>
+	</field>
+	<lineup>
+		<team type="home" pitcher="501955" index="4">
+			<man pid="400085"/>
+			<man pid="501660"/>
+			<man pid="429664"/>
+			<man pid="400098"/>
+			<man pid="150484"/>
+			<man pid="407489"/>
+			<man pid="456488"/>
+			<man pid="458501"/>
+			<man pid="519222"/>
+		</team>
+		<team type="away" pitcher="450282" index="2">
+			<man pid="572821"/>
+			<man pid="408045"/>
+			<man pid="408047"/>
+			<man pid="425491"/>
+			<man pid="461858"/>
+			<man pid="543305"/>
+			<man pid="460004"/>
+			<man pid="425206"/>
+			<man pid="465753"/>
+		</team>
+	</lineup>
+	<weather temp="88" condition="Partly Cloudy" wind="10mph Out To LF"/>
+	<control wait="10" box="0"/>
+</game>

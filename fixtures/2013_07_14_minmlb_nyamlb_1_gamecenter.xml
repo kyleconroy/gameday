@@ -1,0 +1,131 @@
+<game status="F" id="2013_07_14_minmlb_nyamlb_1" start_time="1:05" ampm="pm" time_zone="ET"  type="R" away_score="10" home_score="4" league="AL" series-code="" series-game-number="3" game-number="1">
+    <ticketlink></ticketlink>
+    <venueShort>Yankee Stadium</venueShort>
+	<venueLong>Yankee Stadium</venueLong>
+	<gallery exists="1" />
+    <broadcast>
+        <home>
+        <tv>YES</tv>
+        <radio>WCBS 880, WADO 1280</radio>
+</home>
+        <away>
+        <tv>FS-N</tv>
+        <radio>96.3 K-TWIN, TIBN, BOB FM</radio>
+</away>
+    </broadcast>
+    <probables>
+	    
+	<home>
+		<player_id>282332</player_id>
+		<useName>CC</useName>
+		<lastName>Sabathia</lastName>
+		<rosterDisplayName>Sabathia</rosterDisplayName> 
+        <number>52</number>
+		<throwinghand>LHP</throwinghand>
+		<wins>9</wins>
+		<losses>7</losses>
+		<era>3.99</era>
+		<so>112</so>
+		<std_wins>9</std_wins>
+		<std_losses>7</std_losses>
+		<std_era>3.99</std_era>
+		<std_so>112</std_so>
+		<report><![CDATA[Sabathia pitched a complete game, but he lacked run support his last time out, allowing three runs on seven hits in a loss to the Royals. He beat the Twins on July 3 with seven innings of two-run ball at Target Field. ]]></report>
+	    <relatedvideo><media content_id="28752297"><title>Sabathia&#39;s complete game</title></media></relatedvideo>
+
+	</home>
+
+        
+	<away>
+		<player_id>502043</player_id>
+		<useName>Kyle</useName>
+		<lastName>Gibson</lastName>
+		<rosterDisplayName>Gibson</rosterDisplayName> 
+        <number>44</number>
+		<throwinghand>RHP</throwinghand>
+		<wins>1</wins>
+		<losses>2</losses>
+		<era>7.27</era>
+		<so>10</so>
+		<std_wins>1</std_wins>
+		<std_losses>2</std_losses>
+		<std_era>7.27</std_era>
+		<std_so>10</std_so>
+		<report><![CDATA[Gibson is coming off a loss to the Rays on Tuesday, a mostly effective outing marred by one bad frame. He threw six innings, five scoreless, and felt like he had good stuff. But three walks and two big hits in a four-run fourth tarnished the result.]]></report>
+	    <relatedvideo><media content_id="28745095"><title>Twins turn two</title></media></relatedvideo>
+
+	</away>
+	
+	</probables>
+    <previews>
+        <mlb><headline><![CDATA[Yanks, Twins looking to head into break on high note]]></headline><blurb><![CDATA[Veteran Yankees lefty CC Sabathia will be opposed by rookie Twins righty Kyle Gibson when the two teams complete the first half of the season Sunday at Yankee Stadium.]]></blurb><url cid="2013071353630334"><![CDATA[/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=preview&c_id=mlb]]></url>
+</mlb>
+        <home><headline><![CDATA[Yanks, Twins looking to head into break on high note]]></headline><blurb><![CDATA[Veteran Yankees lefty CC Sabathia will be opposed by rookie Twins righty Kyle Gibson when the two teams complete the first half of the season Sunday at Yankee Stadium.]]></blurb><url cid="2013071353630334"><![CDATA[/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=preview&c_id=mlb]]></url>
+</home>
+        <away><headline><![CDATA[Yanks, Twins looking to head into break on high note]]></headline><blurb><![CDATA[Veteran Yankees lefty CC Sabathia will be opposed by rookie Twins righty Kyle Gibson when the two teams complete the first half of the season Sunday at Yankee Stadium.]]></blurb><url cid="2013071353630334"><![CDATA[/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=preview&c_id=mlb]]></url>
+</away>
+    </previews>
+    <recaps>
+        <home><headline><![CDATA[CC takes rare loss vs. Twins to close first half]]></headline><blurb><![CDATA[CC Sabathia lasted four innings and permitted eight runs, five of them unearned, as the Yankees wrapped up their first half of the season with a sloppy 10-4 loss to the Twins at Yankee Stadium.]]></blurb><url cid="2013071453726520"><![CDATA[/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=recap&c_id=nyy]]></url>
+</home>    
+        <away><headline><![CDATA[Twins turn tables on CC to take series in NY]]></headline><blurb><![CDATA[The Twins jumped all over CC Sabathia on Sunday at Yankee Satdium, knocking him out of the game after just four innings en route to a 10-4 victory heading into the All-Star break. The win marked Minnesota's first against Sabathia since July 29, 2007, when he was still a member of the Tribe.]]></blurb><url cid="2013071453726360"><![CDATA[/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=recap&c_id=min]]></url>
+</away>    
+    </recaps>
+    <wrap>
+        <mlb><headline><![CDATA[Minny miracle: Twins top noted nemesis CC]]></headline><blurb><![CDATA[CC Sabathia hadn't lost to the Twins since 2007, going 9-0 in his previous 10 starts and tallying 17 career wins vs. Minnesota coming into the first-half finale. But the Twins banged out 14 hits and 10 runs for Kyle Gibson to top the Yanks in N.Y.]]></blurb><url cid="2013071453726410"><![CDATA[/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=wrap&c_id=mlb]]></url><video_index>
+<item mediaType="video">
+  <meta content_id="28895929" link_type="vpp" topic_id="" calendar_event_id="" view_key="" duration="00:00:59"/>
+  <headline><![CDATA[Hicks' three-run blast]]></headline>
+  <blurb><![CDATA[MIN@NYY: Hicks launches a three-run homer to left]]></blurb>
+  <big_blurb><![CDATA[7/14/13: Aaron Hicks jumps on the first pitch of his third-inning at-bat and rips a three-run homer to give the Twins a 5-0 lead]]></big_blurb>
+  <thumb>http://mediadownloads.mlb.com/mlbam/2013/07/14/images/mlbf_28895929_th_7.jpg</thumb>
+  <keywords/>
+</item>
+</video_index>
+</mlb>    
+    </wrap>
+        <photos>
+        
+
+<ipad>
+    <url>/assets/images/6/2/6/53759626/cuts/gibson1440_z00ounp9_fyif1j42.jpg</url>
+    <url_retina>/assets/images/6/2/6/53759626/cuts/gibson1440_z00ounp9_fyif1j42@2x.jpg</url_retina>
+    <url_ps>/assets/images/6/2/6/53759626/cuts/gibson1440_z00ounp9_kiigy9uc.jpg</url_ps>
+    <url_ps_retina>/assets/images/6/2/6/53759626/cuts/gibson1440_z00ounp9_kiigy9uc@2x.jpg</url_ps_retina>
+    <headline><![CDATA[]]></headline>
+    <caption><![CDATA[Minny miracle: Twins top noted nemesis CC]]></caption>
+    <credit><![CDATA[]]></credit>
+</ipad>
+    
+    </photos>
+    
+
+
+<mlbtv_alt_feed_index>
+</mlbtv_alt_feed_index>
+<condensed_video><media pid="mlb_cg" type="video" free="T" feed-code="mlb_cg" dds-id="" date="2013/07/14" state="" game-id="2013/07/14/minmlb-nyamlb-1" blackout="local">
+	<title>7/14/13 CG: MIN@NYY</title>
+	<duration>00:15:17</duration>
+<meta content_id="28912007" link_type="mp4" topic_id="" calendar_event_id="14-348161-2013-07-14" view_key="" duration="00:15:17"  /> 
+<url speed="101" fid="mlb_cg101" w_id="9255328" id="9255328" authorization="" login="" type="flash-video" gid="2013/07/14/minmlb-nyamlb-1" pid="mlb_cg" spons="" vid="" c_url="" mid="2013071428912007" v="3" state="" >http://mediadownloads.mlb.com/mlbam/2013/07/15/28912007_m3u8/master_mobile.m3u8</url>
+<url speed="102" fid="mlb_cg102" w_id="9255330" id="9255330" authorization="" login="" type="flash-video" gid="2013/07/14/minmlb-nyamlb-1" pid="mlb_cg" spons="" vid="" c_url="" mid="2013071428912007" v="3" state="" >http://mediadownloads.mlb.com/mlbam/2013/07/15/28912007_m3u8/master_tablet.m3u8</url>
+<url speed="1200" fid="mlb_cg1200" w_id="9255326" id="9255326" authorization="" login="" type="flash-video" gid="2013/07/14/minmlb-nyamlb-1" pid="mlb_cg" spons="" vid="" c_url="" mid="2013071428912007" v="3" state="" >rtmp://cp65671.edgefcs.net/ondemand/mp4:open/mlbam/2013/07/15/mlbtv_minnya_28912007_1200K.mp4</url>
+	
+<thumbnail></thumbnail>
+</media></condensed_video><ipad_video>
+<media pid="mlb_tp" type="video" free="T" feed-code="mlb_tp" dds-id="" date="" state="" game-id="" blackout="local">
+  <title><![CDATA[Hicks' three-run blast]]></title>
+  <duration>00:00:59</duration>
+  <meta content_id="28895929" link_type="vpp" topic_id="" calendar_event_id="" view_key="" duration="00:00:59"/>
+  <url speed="1200" fid="mlb_tp1200" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/mlbtv_minnya_28895929_1200K.mp4</url>
+  <url speed="128" fid="mlb_tp128" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/14-348161-2013-07-14/web_cut/rth_minnya_28895929_300k.mp4</url>
+  <url speed="1800" fid="mlb_tp1800" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/mlbtv_minnya_28895929_1800K.mp4</url>
+  <url speed="300" fid="mlb_tp300" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/mlbtv_minnya_28895929_300K.mp4</url>
+  <url speed="600" fid="mlb_tp600" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/mlbtv_minnya_28895929_600K.mp4</url>
+  <url speed="" fid="mlb_tp" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/28895929_m3u8/master_android_tablet.m3u8</url>
+  <url speed="101" fid="mlb_tp101" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/28895929_m3u8/master_mobile.m3u8</url>
+  <url speed="102" fid="mlb_tp102" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/28895929_m3u8/master_tablet.m3u8</url>
+  <url speed="" fid="mlb_tp" w_id="0" id="0" authorization="N" login="N" type="flash_video" gid="" pid="mlb_tp" spons="" vid="" c_url="" mid="2013071428895929" v="" state="">http://mediadownloads.mlb.com/mlbam/2013/07/14/28895929_m3u8/master_wired.m3u8</url>
+  <thumbnail>http://mediadownloads.mlb.com/mlbam/2013/07/14/images/mlbf_28895929_th_7.jpg</thumbnail>
+</media>
+</ipad_video></game>
