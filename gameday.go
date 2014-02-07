@@ -39,6 +39,12 @@ const (
 	Yankees   = "147"
 )
 
+type LineScore struct {
+        Inning int `xml:"inning,attr"`
+        Home int `xml:"home_inning_runs,attr"`
+        Away int `xml:"away_inning_runs,attr"`
+}
+
 type Game struct {
 	Id           string `xml:"id,attr"`
 	Venue        string `xml:"venue,attr"`
@@ -50,6 +56,7 @@ type Game struct {
 	HomeTeamCode string `xml:"home_code,attr"`
 	HomeTeamId   string `xml:"home_team_id,attr"`
 	HomeTeamName string `xml:"home_team_name,attr"`
+    Lines []LineScore `xml:"linescore"`
 }
 
 type Schedule struct {
@@ -63,49 +70,59 @@ type Broadcast struct {
         TV string `xml:"tv"`
 }
 
+type Story struct {
+        Headline string `xml:"headline"`
+        Blurb string `xml:"blurb"`
+        Url string `xml:"url"`
+}
+
+type Pitcher struct {
+        Id string `xml:"player_id"`
+        FirstName string `xml:"useName"`
+        LastName string `xml:"lastName"`
+        RosterName string `xml:"rosterDisplayName"`
+        Number int `xml:"number"`
+        Hand string `xml:"throwinghand"`
+        Wins int `xml:"wins"`
+        Lossers int `xml:"losses"`
+        StrikeOuts int `xml:"so"`
+        ERA float64 `xml:"era"`
+        Report string `xml:"report"`
+}
+
 type Gamecenter struct {
         Id string `xml:"id,attr"`
+        Status string `xml:"status,attr"`
+        StartTime string `xml:"start_time,attr"`
+        Meridiem string `xml:"ampm,attr"`
+        Timezone string `xml:"time_zone,attr"`
+        Type string `xml:"type,attr"`
+        League string `xml:"league,attr"`
         VenueShort string `xml:"venueShort"`
         VenueLong string `xml:"venueLong"`
         HomeBroadcast Broadcast `xml:"broadcast>home"`
+        HomePitcher Pitcher `xml:"probables>home"`
+        HomePreview Story `xml:"previews>home"`
+        HomeRecap Story `xml:"recaps>home"`
         AwayBroadcast Broadcast `xml:"broadcast>away"`
+        AwayPitcher Pitcher `xml:"probables>away"`
+        AwayRecap Story `xml:"recaps>away"`
+        MLBPreview Story `xml:"preview>mlb"`
+        MLBWrap Story `xml:"wrap>mlb"`
 }
 
-func LoadSchedule(reader io.Reader) (Schedule, error) {
-	var schedule Schedule
-
+func Load(reader io.Reader, anything interface{}) (error) {
 	blob, err := ioutil.ReadAll(reader)
-
 	if err != nil {
-		return schedule, err
+		return err
 	}
-
-	err = xml.Unmarshal(blob, &schedule)
-
+	err = xml.Unmarshal(blob, anything)
 	if err != nil {
-		return schedule, err
+		return err
 	}
-
-	return schedule, nil
+	return nil
 }
 
-func LoadGamecenter(reader io.Reader) (Gamecenter, error) {
-	var center Gamecenter
-
-	blob, err := ioutil.ReadAll(reader)
-
-	if err != nil {
-		return center, err
-	}
-
-	err = xml.Unmarshal(blob, &center)
-
-	if err != nil {
-		return center, err
-	}
-
-	return center, nil
-}
 
 func TeamSubreddit(id string) string {
 	subs := map[string]string{
