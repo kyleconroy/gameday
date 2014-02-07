@@ -89,19 +89,33 @@ func TestWeather(t *testing.T) {
 		t.Fatal(err)
 	}
 
-    check(t, game.Weather.Temperature, "88")
-    check(t, game.Weather.Wind, "10mph Out To LF")
-    check(t, game.Weather.Conditions, "Partly Cloudy")
+	check(t, game.Weather.Temperature, "88")
+	check(t, game.Weather.Wind, "10mph Out To LF")
+	check(t, game.Weather.Conditions, "Partly Cloudy")
 }
 
 func TestScoringPlays(t *testing.T) {
-	_, err := os.Open("fixtures/2013_07_14_minmlb_nyamlb_1_gameday_Syn.xml")
+	handle, err := os.Open("fixtures/2013_07_14_minmlb_nyamlb_1_gameday_Syn.xml")
 
 	if err != nil {
 		t.Fatal(err)
 	}
-}
 
+	var gd Gameday
+
+	err = Load(handle, &gd)
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	summary := gd.Game.Summaries[0]
+	score := summary.Plays[0]
+
+	check(t, summary.Inning, "1b")
+	check(t, score.Team, "phi")
+
+}
 
 func TestLinescore(t *testing.T) {
 	handle, err := os.Open("fixtures/2013_07_14_minmlb_nyamlb_1_linescore.xml")

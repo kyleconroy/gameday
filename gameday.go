@@ -124,6 +124,18 @@ type GameLineScore struct {
 	Away   string `xml:"away_inning_runs,attr"`
 }
 
+type Score struct {
+	Team        string `xml:"team,attr"`
+	Description string `xml:"description,attr"`
+	AwayScore   int    `xml:"away_score,attr"`
+	HomeScore   int    `xml:"home_score"`
+}
+
+type Summary struct {
+	Inning string  `xml:"inning,attr"`
+	Plays  []Score `xml:"score"`
+}
+
 type Game struct {
 	AwayAPMP     string          `xml:"away_ampm,attr"`
 	AwayLoss     string          `xml:"away_loss,attr"`
@@ -148,13 +160,14 @@ type Game struct {
 	Lines        []GameLineScore `xml:"linescore"`
 	Timezone     string          `xml:"time_zone,attr"`
 	Venue        string          `xml:"venue,attr"`
-    Weather Weather `xml:"weather"`
+	Weather      Weather         `xml:"weather"`
+	Summaries    []Summary       `xml:"scoring-summary"`
 }
 
 type Weather struct {
-    Wind  string `xml:"wind,attr"`
-    Temperature string `xml:"temp,attr"`
-    Conditions string `xml:"condition,attr"`
+	Wind        string `xml:"wind,attr"`
+	Temperature string `xml:"temp,attr"`
+	Conditions  string `xml:"condition,attr"`
 }
 
 type Schedule struct {
@@ -207,6 +220,10 @@ type Gamecenter struct {
 	AwayRecap     Story     `xml:"recaps>away"`
 	MLBPreview    Story     `xml:"preview>mlb"`
 	MLBWrap       Story     `xml:"wrap>mlb"`
+}
+
+type Gameday struct {
+	Game Game `xml:"game"`
 }
 
 func Load(reader io.Reader, anything interface{}) error {
