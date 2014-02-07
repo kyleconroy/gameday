@@ -43,6 +43,37 @@ func TestSchedule(t *testing.T) {
 	check(t, game.HomeTeamCode, "cle")
 }
 
+func TestBoxscore(t *testing.T) {
+	handle, err := os.Open("fixtures/2013_07_14_minmlb_nyamlb_1_boxscore.xml")
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	var box BoxScore
+
+	err = Load(handle, &box)
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	check(t, box.GameId, "2013/10/08/oakmlb-detmlb-1")
+	check(t, box.HomeId, Tigers)
+	check(t, box.AwayId, Athletics)
+	check(t, len(box.Pitching), 2)
+
+    pitching := box.Pitching[0]
+
+    check(t, len(pitching.Pitchers), 5)
+
+    pitcher := pitching.Pitchers[0]
+
+    check(t, pitcher.Name, "Straily")
+    check(t, pitcher.Position, "P")
+    check(t, pitcher.Outs, 18)
+}
+
 func TestLinescore(t *testing.T) {
 	handle, err := os.Open("fixtures/2013_07_14_minmlb_nyamlb_1_linescore.xml")
 
@@ -63,9 +94,9 @@ func TestLinescore(t *testing.T) {
 
 	score := game.Lines[1]
 
-	check(t, score.Inning, 2)
-	check(t, score.Home, 0)
-	check(t, score.Away, 2)
+	check(t, score.Inning, "2")
+	check(t, score.Home, "0")
+	check(t, score.Away, "2")
 }
 
 func TestGamecenter(t *testing.T) {

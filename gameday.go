@@ -39,31 +39,112 @@ const (
 	Yankees   = "147"
 )
 
-type LineScore struct {
-	Inning int `xml:"inning,attr"`
-	Home   int `xml:"home_inning_runs,attr"`
-	Away   int `xml:"away_inning_runs,attr"`
+type BoxLineScore struct {
+	Inning string `xml:"inning,attr"`
+	Home   string `xml:"home,attr"`
+	Away   string `xml:"away,attr"`
+}
+
+type Pitcher struct {
+	Id             string  `xml:"id,attr"`
+	Name           string  `xml:"name,attr"`
+	InningsPitched int     `xml:"`
+	Hits           int     `xml:"h,attr"`
+	Runs           int     `xml:"r,attr"`
+	EarnedRuns     int     `xml:"er,attr"`
+	Walks          int     `xml:"bb,attr"`
+	Strikeouts     int     `xml:"so,attr"`
+	Pitches        int     `xml:"np,attr"`
+	Position        string     `xml:"pos,attr"`
+	Outs        int     `xml:"out,attr"`
+	Strikes        int     `xml:"s,attr"`
+	ERA            float64 `xml:"era,attr"`
+}
+
+type BoxPitching struct {
+	InningsPitched int     `xml:"`
+	Hits           int     `xml:"h,attr"`
+	Runs           int     `xml:"r,attr"`
+	EarnedRuns     int     `xml:"er,attr"`
+	Walks          int     `xml:"bb,attr"`
+	Strikeouts     int     `xml:"so,attr"`
+	Homeruns        int     `xml:"hr,attr"`
+	Outs        int     `xml:"outs,attr"`
+	ERA            float64 `xml:"era,attr"`
+        Pitchers []Pitcher `xml:"pitcher"`
+}
+
+type Batter struct {
+	Id             string  `xml:"id,attr"`
+	Name           string  `xml:"name,attr"`
+	AtBats         int     `xml:"ab,attr"`
+	Runs           int     `xml:"r,attr"`
+	Hits           int     `xml:"h,attr"`
+	Doutbles       int     `xml:"d,attr"`
+	Triples        int     `xml:"t,attr"`
+	HomeRuns       int     `xml:"hr,attr"`
+	RBIs           int     `xml:"rbi,attr"`
+	Walks          int     `xml:"bb,attr"`
+	Strikeouts     int     `xml:"so,attr"`
+	BattingAverage float64 `xml:"avg,attr"`
+	Position       string  `xml:"pos,attr"`
+}
+
+type BoxBatting struct {
+	Flag           string   `xml:"team_flag,attr"`
+	AtBats         int      `xml:"ab,attr"`
+	Runs           int      `xml:"r,attr"`
+	Hits           int      `xml:"h,attr"`
+	Doutbles       int      `xml:"d,attr"`
+	Triples        int      `xml:"t,attr"`
+	HomeRuns       int      `xml:"hr,attr"`
+	RBIs           int      `xml:"rbi,attr"`
+	Walks          int      `xml:"bb,attr"`
+	StrikeOuts     int      `xml:"so,attr"`
+	BattingAverage float64  `xml:"avg,attr"`
+	Batters        []Batter `xml:"batter"`
+}
+
+type BoxScore struct {
+	GameId   string         `xml:"game_id,attr"`
+	GameKey  string         `xml:"game_pk,attr"`
+	HomeId   string         `xml:"home_id,attr"`
+	AwayId   string         `xml:"away_id,attr"`
+	Lines    []BoxLineScore `xml:"linescore>inning_line_score"`
+	Pitching []BoxPitching  `xml:"pitching"`
+	Batting  []BoxBatting   `xml:"batting"`
+}
+
+type GameLineScore struct {
+	Inning string `xml:"inning,attr"`
+	Home   string `xml:"home_inning_runs,attr"`
+	Away   string `xml:"away_inning_runs,attr"`
 }
 
 type Game struct {
-	Id           string `xml:"id,attr"`
-	Venue        string `xml:"venue,attr"`
-	Key          string `xml:"game_pk,attr"`
-	Timezone     string `xml:"time_zone,attr"`
-	AwayTime     string `xml:"away_time,attr"`
-	AwayTimezone string `xml:"away_time_zone,attr"`
-	AwayAPMP     string `xml:"away_ampm,attr"`
-	HomeTime     string `xml:"home_time,attr"`
-	HomeTimezone string `xml:"home_time_zone,attr"`
-	HomeAMPM     string `xml:"home_ampm,attr"`
-
-	AwayTeamCode string      `xml:"away_code,attr"`
-	AwayTeamId   string      `xml:"away_team_id,attr"`
-	AwayTeamName string      `xml:"away_team_name,attr"`
-	HomeTeamCode string      `xml:"home_code,attr"`
-	HomeTeamId   string      `xml:"home_team_id,attr"`
-	HomeTeamName string      `xml:"home_team_name,attr"`
-	Lines        []LineScore `xml:"linescore"`
+	AwayAPMP     string          `xml:"away_ampm,attr"`
+	AwayLoss     string          `xml:"away_loss,attr"`
+	AwayTeamCity string          `xml:"away_team_city,attr"`
+	AwayTeamCode string          `xml:"away_code,attr"`
+	AwayTeamId   string          `xml:"away_team_id,attr"`
+	AwayTeamName string          `xml:"away_team_name,attr"`
+	AwayTime     string          `xml:"away_time,attr"`
+	AwayTimezone string          `xml:"away_time_zone,attr"`
+	AwayWin      string          `xml:"away_win,attr"`
+	HomeAMPM     string          `xml:"home_ampm,attr"`
+	HomeLoss     string          `xml:"home_loss,attr"`
+	HomeTeamCity string          `xml:"home_team_city,attr"`
+	HomeTeamCode string          `xml:"home_code,attr"`
+	HomeTeamId   string          `xml:"home_team_id,attr"`
+	HomeTeamName string          `xml:"home_team_name,attr"`
+	HomeTime     string          `xml:"home_time,attr"`
+	HomeTimezone string          `xml:"home_time_zone,attr"`
+	HomeWin      string          `xml:"home_win,attr"`
+	Id           string          `xml:"id,attr"`
+	Key          string          `xml:"game_pk,attr"`
+	Lines        []GameLineScore `xml:"linescore"`
+	Timezone     string          `xml:"time_zone,attr"`
+	Venue        string          `xml:"venue,attr"`
 }
 
 type Schedule struct {
@@ -83,7 +164,7 @@ type Story struct {
 	Url      string `xml:"url"`
 }
 
-type Pitcher struct {
+type GCPitcher struct {
 	Id         string  `xml:"player_id"`
 	FirstName  string  `xml:"useName"`
 	LastName   string  `xml:"lastName"`
@@ -108,11 +189,11 @@ type Gamecenter struct {
 	VenueShort    string    `xml:"venueShort"`
 	VenueLong     string    `xml:"venueLong"`
 	HomeBroadcast Broadcast `xml:"broadcast>home"`
-	HomePitcher   Pitcher   `xml:"probables>home"`
+	HomePitcher   GCPitcher `xml:"probables>home"`
 	HomePreview   Story     `xml:"previews>home"`
 	HomeRecap     Story     `xml:"recaps>home"`
 	AwayBroadcast Broadcast `xml:"broadcast>away"`
-	AwayPitcher   Pitcher   `xml:"probables>away"`
+	AwayPitcher   GCPitcher `xml:"probables>away"`
 	AwayRecap     Story     `xml:"recaps>away"`
 	MLBPreview    Story     `xml:"preview>mlb"`
 	MLBWrap       Story     `xml:"wrap>mlb"`
