@@ -58,6 +58,9 @@ type Pitcher struct {
 	Position       string  `xml:"pos,attr"`
 	Outs           int     `xml:"out,attr"`
 	Strikes        int     `xml:"s,attr"`
+	Win            bool    `xml:"win,attr"`
+	Loss           bool    `xml:"loss,attr"`
+	Note           string  `xml:"note,attr"`
 	ERA            float64 `xml:"era,attr"`
 }
 
