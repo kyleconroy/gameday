@@ -63,15 +63,15 @@ func TestBoxscore(t *testing.T) {
 	check(t, box.AwayId, Athletics)
 	check(t, len(box.Pitching), 2)
 
-    pitching := box.Pitching[0]
+	pitching := box.Pitching[0]
 
-    check(t, len(pitching.Pitchers), 5)
+	check(t, len(pitching.Pitchers), 5)
 
-    pitcher := pitching.Pitchers[0]
+	pitcher := pitching.Pitchers[0]
 
-    check(t, pitcher.Name, "Straily")
-    check(t, pitcher.Position, "P")
-    check(t, pitcher.Outs, 18)
+	check(t, pitcher.Name, "Straily")
+	check(t, pitcher.Position, "P")
+	check(t, pitcher.Outs, 18)
 }
 
 func TestLinescore(t *testing.T) {

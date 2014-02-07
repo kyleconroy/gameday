@@ -55,23 +55,23 @@ type Pitcher struct {
 	Walks          int     `xml:"bb,attr"`
 	Strikeouts     int     `xml:"so,attr"`
 	Pitches        int     `xml:"np,attr"`
-	Position        string     `xml:"pos,attr"`
-	Outs        int     `xml:"out,attr"`
+	Position       string  `xml:"pos,attr"`
+	Outs           int     `xml:"out,attr"`
 	Strikes        int     `xml:"s,attr"`
 	ERA            float64 `xml:"era,attr"`
 }
 
 type BoxPitching struct {
-	InningsPitched int     `xml:"`
-	Hits           int     `xml:"h,attr"`
-	Runs           int     `xml:"r,attr"`
-	EarnedRuns     int     `xml:"er,attr"`
-	Walks          int     `xml:"bb,attr"`
-	Strikeouts     int     `xml:"so,attr"`
-	Homeruns        int     `xml:"hr,attr"`
-	Outs        int     `xml:"outs,attr"`
-	ERA            float64 `xml:"era,attr"`
-        Pitchers []Pitcher `xml:"pitcher"`
+	InningsPitched int       `xml:"`
+	Hits           int       `xml:"h,attr"`
+	Runs           int       `xml:"r,attr"`
+	EarnedRuns     int       `xml:"er,attr"`
+	Walks          int       `xml:"bb,attr"`
+	Strikeouts     int       `xml:"so,attr"`
+	Homeruns       int       `xml:"hr,attr"`
+	Outs           int       `xml:"outs,attr"`
+	ERA            float64   `xml:"era,attr"`
+	Pitchers       []Pitcher `xml:"pitcher"`
 }
 
 type Batter struct {
