@@ -4,6 +4,7 @@ import (
 	"os"
 	"reflect"
 	"testing"
+	"time"
 )
 
 func check(t *testing.T, a interface{}, b interface{}) {
@@ -149,7 +150,7 @@ func TestGamecenter(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	var gc Gamecenter
+	var gc GameCenter
 
 	err = Load(handle, &gc)
 
@@ -172,4 +173,47 @@ func TestGamecenter(t *testing.T) {
 
 	check(t, gc.HomePitcher.FirstName, "CC")
 	check(t, gc.HomeRecap.Url, "/mlb/gameday/index.jsp?gid=2013_07_14_minmlb_nyamlb_1&mode=recap&c_id=nyy")
+}
+
+// Warning: this test fetches live data from the MLB
+// Need timezone info?
+func TestFetchFromMLB(t *testing.T) {
+	date := time.Date(2013, time.August, 8, 0, 0, 0, 0, time.UTC)
+
+	game, err := GetGame(Giants, date)
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	check(t, game.Id, "2013/08/08/milmlb-sfnmlb-1")
+
+	weather, err := game.GetWeather()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	boxscore, err := game.GetBoxScore()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	summaries, err := game.GetSummaries()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	gamecenter, err := game.GetGameCenter()
+
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	check(t, weather.Temperature, "59")
+	check(t, boxscore.GameId, game.Id)
+	check(t, gamecenter.Id, "2013_08_08_milmlb_sfnmlb_1")
+	check(t, len(summaries), 3)
 }

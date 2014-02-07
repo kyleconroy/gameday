@@ -2,8 +2,11 @@ package gameday
 
 import (
 	"encoding/xml"
+	"fmt"
 	"io"
 	"io/ioutil"
+	"net/http"
+	"time"
 )
 
 const (
@@ -37,6 +40,10 @@ const (
 	Twins     = "142"
 	WhiteSox  = "145"
 	Yankees   = "147"
+)
+const (
+	GamedayHostname = "http://gd2.mlb.com"
+	GamedayBaseUrl  = "http://gd2.mlb.com/components/game/mlb"
 )
 
 type BoxLineScore struct {
@@ -162,6 +169,53 @@ type Game struct {
 	Venue        string          `xml:"venue,attr"`
 	Weather      Weather         `xml:"weather"`
 	Summaries    []Summary       `xml:"scoring-summary"`
+	DataDir      string          `xml:"game_data_directory,attr"`
+}
+
+func (g *Game) loadFile(path string, val interface{}) error {
+	if g.DataDir == "" {
+		return fmt.Errorf("The DataDir is empty, so now URL can be created")
+	}
+
+	url := fmt.Sprintf(GamedayHostname + g.DataDir + "/" + path)
+
+	resp, err := http.Get(url)
+
+	if err != nil {
+		return err
+	}
+
+	err = Load(resp.Body, val)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (g *Game) GetGameCenter() (GameCenter, error) {
+	var gc GameCenter
+	err := g.loadFile("gamecenter.xml", &gc)
+	return gc, err
+}
+
+func (g *Game) GetBoxScore() (BoxScore, error) {
+	var box BoxScore
+	err := g.loadFile("boxscore.xml", &box)
+	return box, err
+}
+
+func (g *Game) GetSummaries() ([]Summary, error) {
+	var gd Gameday
+	err := g.loadFile("gameday_Syn.xml", &gd)
+	return gd.Game.Summaries, err
+}
+
+func (g *Game) GetWeather() (Weather, error) {
+	var game Game
+	err := g.loadFile("plays.xml", &game)
+	return game.Weather, err
 }
 
 type Weather struct {
@@ -201,8 +255,8 @@ type GCPitcher struct {
 	Report     string  `xml:"report"`
 }
 
-type Gamecenter struct {
-	Id            string    `xml:"id,attr"`
+type GameCenter struct {
+    Id        string    `xml:"id,attr"`
 	Status        string    `xml:"status,attr"`
 	StartTime     string    `xml:"start_time,attr"`
 	AMPM          string    `xml:"ampm,attr"`
@@ -272,4 +326,32 @@ func TeamSubreddit(id string) string {
 		Yankees:   "/r/NYYankees",
 	}
 	return subs[id]
+}
+
+func GetGame(id string, t time.Time) (Game, error) {
+	y, m, d := t.Date()
+
+	url := fmt.Sprintf(GamedayBaseUrl+"/year_%d/month_%02d/day_%02d/epg.xml", y, m, d)
+
+	resp, err := http.Get(url)
+
+	if err != nil {
+		return Game{}, err
+	}
+
+	var s Schedule
+
+	err = Load(resp.Body, &s)
+
+	if err != nil {
+		return Game{}, err
+	}
+
+	for _, game := range s.Games {
+		if game.HomeTeamId == id || game.AwayTeamId == id {
+			return game, nil
+		}
+	}
+
+	return Game{}, fmt.Errorf("Team %s doesn't have a game on %s", id, t)
 }
