@@ -40,9 +40,9 @@ const (
 )
 
 type LineScore struct {
-        Inning int `xml:"inning,attr"`
-        Home int `xml:"home_inning_runs,attr"`
-        Away int `xml:"away_inning_runs,attr"`
+	Inning int `xml:"inning,attr"`
+	Home   int `xml:"home_inning_runs,attr"`
+	Away   int `xml:"away_inning_runs,attr"`
 }
 
 type Game struct {
@@ -50,13 +50,20 @@ type Game struct {
 	Venue        string `xml:"venue,attr"`
 	Key          string `xml:"game_pk,attr"`
 	Timezone     string `xml:"time_zone,attr"`
-	AwayTeamCode string `xml:"away_code,attr"`
-	AwayTeamId   string `xml:"away_team_id,attr"`
-	AwayTeamName string `xml:"away_team_name,attr"`
-	HomeTeamCode string `xml:"home_code,attr"`
-	HomeTeamId   string `xml:"home_team_id,attr"`
-	HomeTeamName string `xml:"home_team_name,attr"`
-    Lines []LineScore `xml:"linescore"`
+	AwayTime     string `xml:"away_time,attr"`
+	AwayTimezone string `xml:"away_time_zone,attr"`
+	AwayAPMP     string `xml:"away_ampm,attr"`
+	HomeTime     string `xml:"home_time,attr"`
+	HomeTimezone string `xml:"home_time_zone,attr"`
+	HomeAMPM     string `xml:"home_ampm,attr"`
+
+	AwayTeamCode string      `xml:"away_code,attr"`
+	AwayTeamId   string      `xml:"away_team_id,attr"`
+	AwayTeamName string      `xml:"away_team_name,attr"`
+	HomeTeamCode string      `xml:"home_code,attr"`
+	HomeTeamId   string      `xml:"home_team_id,attr"`
+	HomeTeamName string      `xml:"home_team_name,attr"`
+	Lines        []LineScore `xml:"linescore"`
 }
 
 type Schedule struct {
@@ -66,52 +73,52 @@ type Schedule struct {
 }
 
 type Broadcast struct {
-        Radio string `xml:"radio"`
-        TV string `xml:"tv"`
+	Radio string `xml:"radio"`
+	TV    string `xml:"tv"`
 }
 
 type Story struct {
-        Headline string `xml:"headline"`
-        Blurb string `xml:"blurb"`
-        Url string `xml:"url"`
+	Headline string `xml:"headline"`
+	Blurb    string `xml:"blurb"`
+	Url      string `xml:"url"`
 }
 
 type Pitcher struct {
-        Id string `xml:"player_id"`
-        FirstName string `xml:"useName"`
-        LastName string `xml:"lastName"`
-        RosterName string `xml:"rosterDisplayName"`
-        Number int `xml:"number"`
-        Hand string `xml:"throwinghand"`
-        Wins int `xml:"wins"`
-        Lossers int `xml:"losses"`
-        StrikeOuts int `xml:"so"`
-        ERA float64 `xml:"era"`
-        Report string `xml:"report"`
+	Id         string  `xml:"player_id"`
+	FirstName  string  `xml:"useName"`
+	LastName   string  `xml:"lastName"`
+	RosterName string  `xml:"rosterDisplayName"`
+	Number     int     `xml:"number"`
+	Hand       string  `xml:"throwinghand"`
+	Wins       int     `xml:"wins"`
+	Lossers    int     `xml:"losses"`
+	StrikeOuts int     `xml:"so"`
+	ERA        float64 `xml:"era"`
+	Report     string  `xml:"report"`
 }
 
 type Gamecenter struct {
-        Id string `xml:"id,attr"`
-        Status string `xml:"status,attr"`
-        StartTime string `xml:"start_time,attr"`
-        Meridiem string `xml:"ampm,attr"`
-        Timezone string `xml:"time_zone,attr"`
-        Type string `xml:"type,attr"`
-        League string `xml:"league,attr"`
-        VenueShort string `xml:"venueShort"`
-        VenueLong string `xml:"venueLong"`
-        HomeBroadcast Broadcast `xml:"broadcast>home"`
-        HomePitcher Pitcher `xml:"probables>home"`
-        HomePreview Story `xml:"previews>home"`
-        HomeRecap Story `xml:"recaps>home"`
-        AwayBroadcast Broadcast `xml:"broadcast>away"`
-        AwayPitcher Pitcher `xml:"probables>away"`
-        AwayRecap Story `xml:"recaps>away"`
-        MLBPreview Story `xml:"preview>mlb"`
-        MLBWrap Story `xml:"wrap>mlb"`
+	Id            string    `xml:"id,attr"`
+	Status        string    `xml:"status,attr"`
+	StartTime     string    `xml:"start_time,attr"`
+	AMPM          string    `xml:"ampm,attr"`
+	Timezone      string    `xml:"time_zone,attr"`
+	Type          string    `xml:"type,attr"`
+	League        string    `xml:"league,attr"`
+	VenueShort    string    `xml:"venueShort"`
+	VenueLong     string    `xml:"venueLong"`
+	HomeBroadcast Broadcast `xml:"broadcast>home"`
+	HomePitcher   Pitcher   `xml:"probables>home"`
+	HomePreview   Story     `xml:"previews>home"`
+	HomeRecap     Story     `xml:"recaps>home"`
+	AwayBroadcast Broadcast `xml:"broadcast>away"`
+	AwayPitcher   Pitcher   `xml:"probables>away"`
+	AwayRecap     Story     `xml:"recaps>away"`
+	MLBPreview    Story     `xml:"preview>mlb"`
+	MLBWrap       Story     `xml:"wrap>mlb"`
 }
 
-func Load(reader io.Reader, anything interface{}) (error) {
+func Load(reader io.Reader, anything interface{}) error {
 	blob, err := ioutil.ReadAll(reader)
 	if err != nil {
 		return err
@@ -122,7 +129,6 @@ func Load(reader io.Reader, anything interface{}) (error) {
 	}
 	return nil
 }
-
 
 func TeamSubreddit(id string) string {
 	subs := map[string]string{
