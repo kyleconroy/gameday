@@ -256,7 +256,7 @@ type GCPitcher struct {
 }
 
 type GameCenter struct {
-    Id        string    `xml:"id,attr"`
+	Id            string    `xml:"id,attr"`
 	Status        string    `xml:"status,attr"`
 	StartTime     string    `xml:"start_time,attr"`
 	AMPM          string    `xml:"ampm,attr"`
