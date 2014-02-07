@@ -148,6 +148,13 @@ type Game struct {
 	Lines        []GameLineScore `xml:"linescore"`
 	Timezone     string          `xml:"time_zone,attr"`
 	Venue        string          `xml:"venue,attr"`
+    Weather Weather `xml:"weather"`
+}
+
+type Weather struct {
+    Wind  string `xml:"wind,attr"`
+    Temperature string `xml:"temp,attr"`
+    Conditions string `xml:"condition,attr"`
 }
 
 type Schedule struct {
