@@ -54,6 +54,13 @@ func (c *Client) generate_request (t string, url string, body io.Reader) {
 
 func (c *Client) make_request(fp func(req *Request) (resp *Response, err error), r *Request) (*Response, error) {
   for i := 0, i < 5, i++ {
-
+    resp, err := fp(r)
+    if err == nil {
+      return resp, err
+    } else {
+      if i == 5 {
+        log.Fatal(err)
+      }
+    }
   }
 }
